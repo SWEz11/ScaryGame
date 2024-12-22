@@ -5,12 +5,15 @@ using UnityEngine;
 public class Collecting : MonoBehaviour
 {
     public float number;
-    public MeshRenderer paper;
 
     void OnTriggerEnter(Collider other)
     {
-        number++;
-        paper.enabled = false;
+        if (other.CompareTag("Page"))
+        {
+            number++;
+            Destroy(other);
+
+        }
     }
 
 }

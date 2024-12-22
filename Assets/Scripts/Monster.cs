@@ -14,14 +14,12 @@ public class Monster : MonoBehaviour
     public Collecting papercollecting;
     public float speed;
     public bool personDistination;
-    public Animation animations;
 
     void Start()
     {
         personDistination = false;
         agent = GetComponent<NavMeshAgent>();
         speed = GetComponent<NavMeshAgent>().speed;
-        animations = GetComponent<Animation>();
         
 
 
@@ -56,11 +54,10 @@ public class Monster : MonoBehaviour
             personDistination = false;
         }
 
-        if (papercollecting.number == 1)
+        if (papercollecting.number >= 2)
         {
             agent.SetDestination(target.position);
             agent.speed = 70;
-            agent
         }
     }
 }
